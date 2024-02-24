@@ -1,4 +1,4 @@
-package usineBonbon;
+package application.usineBonbon;
 
 import java.util.ArrayList;
 

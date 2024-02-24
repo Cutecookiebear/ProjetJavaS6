@@ -1,4 +1,4 @@
-package usineBonbon;
+package application.usineBonbon;
 
 public class ChaineProduction {
 	private String codeChaine;
