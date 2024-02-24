@@ -1,4 +1,4 @@
-package application.usineBonbon;
+package src.application.usineBonbon;
 
 public class ChaineProduction {
 	private String codeChaine;
