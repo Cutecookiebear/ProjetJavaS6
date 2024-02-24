@@ -22,7 +22,7 @@ public class essai extends Application implements EventHandler<ActionEvent> {
          
         Scene scene = new Scene(layout, 300, 300);
          
-        button = new Button("Hello World");
+        button = new Button("Hello bitch");
         button.setOnAction(this);
          
         layout.getChildren().addAll(button);
