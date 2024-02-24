@@ -1,4 +1,4 @@
-package src.application.usineBonbon;
+package application.usineBonbon;
 
 public class CommandeFournisseur extends Commande{
 
