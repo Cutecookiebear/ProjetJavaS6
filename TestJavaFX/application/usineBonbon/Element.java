@@ -9,12 +9,12 @@ public class Element {
 	private float prixAchat;
 	private float prixVente;
 	
-	public Element(String codeE, String nom, int quantite, String unite, float prixAchat,float prixVente) {
+	public Element(String codeE, String nom, String unite, float prixAchat,float prixVente) {
 		this.codeE=codeE;
 		this.nom=nom;
 		this.prixAchat=prixAchat;
 		this.prixVente=prixVente;
-		this.quantite=quantite;
+		this.quantite=0;
 		this.unite=unite;
 	}
 
