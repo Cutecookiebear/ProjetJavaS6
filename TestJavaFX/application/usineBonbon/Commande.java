@@ -2,23 +2,23 @@ package application.usineBonbon;
 
 import java.util.ArrayList;
 
-public class Commande<T> {
+public class Commande {
 	
-    private ArrayList<T> liste;
+    private ArrayList<Panier> liste;
 
     public Commande() {
         liste = new ArrayList<>();
     }
 
-    public void ajouterElement(T element) {
-        liste.add(element);
+    public void ajouterPanier(Panier p) {
+        liste.add(p);
     }
 
-    public void supprimerElement(T element) {
-        liste.remove(element);
+    public void supprimerPanier(Panier p) {
+        liste.remove(p);
     }
 
-    public ArrayList<T> getListe() {
+    public ArrayList<Panier> getListe() {
         return liste;
     }
 
@@ -29,4 +29,5 @@ public class Commande<T> {
     public boolean estVide() {
         return liste.isEmpty();
     }
+    
 }
