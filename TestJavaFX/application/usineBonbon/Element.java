@@ -17,5 +17,21 @@ public class Element {
 		this.quantite=0;
 		this.unite=unite;
 	}
+	
+	public int getQte() {
+		return this.quantite;
+	}
+	
+	public void setQte(int qte) {
+		this.quantite = qte;
+	}
+
+	public float getPrixVente() {
+		return this.prixVente;
+	}
+	
+	public float getPrixAchat() {
+		return this.prixAchat;
+	}
 
 }

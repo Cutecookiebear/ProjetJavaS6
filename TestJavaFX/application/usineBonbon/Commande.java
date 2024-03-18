@@ -2,15 +2,16 @@ package application.usineBonbon;
 
 import java.util.ArrayList;
 
-public class Commande {
+public abstract class Commande {
 	
-    private ArrayList<Panier> liste;
+    protected ArrayList<Panier> liste;
 
     public Commande() {
         liste = new ArrayList<>();
     }
 
-    public void ajouterPanier(Panier p) {
+    public void ajouterPanier(Element e, int qte) {
+    	Panier p = new Panier(e,qte);
         liste.add(p);
     }
 
@@ -30,4 +31,5 @@ public class Commande {
         return liste.isEmpty();
     }
     
+
 }

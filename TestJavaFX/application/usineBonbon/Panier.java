@@ -3,18 +3,18 @@ package application.usineBonbon;
 public class Panier {
 	
 	private Element element;
-	private float qte;
+	private int qte;
 	
-	public Panier(Element element, float qte) {
+	public Panier(Element element, int qte2) {
 		this.element = element;
-		this.qte = qte;
+		this.qte = qte2;
 	}
 	
 	public Element getElem() {
 		return this.element;
 	}
 	
-	public float getQte() {
+	public int getQte() {
 		return this.qte;
 	}
 

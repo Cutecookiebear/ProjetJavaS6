@@ -33,5 +33,18 @@ public class Usine {
 	public int getPorteMonnaie() {
 		return this.porteMonnaie;
 	}
+	
+	public void passerCommandeC(Commande commande) {
+		for(Panier p : commande.liste) {
+			Element e = p.getElem();
+			int qteActuelle = e.getQte();
+			int qteCommandee = p.getQte();
+			int newQte = qteActuelle - qteCommandee;
+			this.stocks.remove(e);
+			e.setQte(newQte);
+			this.stocks.add(e);
+			this.porteMonnaie += qteCommandee*p.getElem().getPrixVente();
+		}
+	}
 
 }
