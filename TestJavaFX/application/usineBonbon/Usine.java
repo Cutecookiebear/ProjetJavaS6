@@ -19,7 +19,7 @@ public class Usine {
 		
 	}
 	
-	public void ajoutChaine(ChaineProduction chaine) {
+	public void ajouterChaine(ChaineProduction chaine) {
 		this.chainesProduction.add(chaine);
 	}
 	
@@ -27,7 +27,7 @@ public class Usine {
 		this.chainesProduction.remove(chaine);
 	}
 	
-	public void ajoutStock(Element e) {
+	public void ajouterStock(Element e) {
 		this.stocks.add(e);
 	}
 	
@@ -35,8 +35,22 @@ public class Usine {
 		this.stocks.remove(e);
 	}
 	
+	public void supprimmerCommandeF(CommandeFournisseur commande) {
+		this.commandesF.remove(commande);
+	}
+	
+	public void supprimmerCommandeC(CommandeClient commande) {
+		this.commandesC.remove(commande);
+	}
+	
 	public int getPorteMonnaie() {
 		return this.porteMonnaie;
+	}
+	
+	public void changerNiveauA(ChaineProduction chaine, int niveau) {
+		this.chainesProduction.remove(chaine);
+		chaine.setNiveau(niveau);
+		this.chainesProduction.add(chaine);
 	}
 	
 	public void passerCommandeC(CommandeClient commande) {
@@ -49,6 +63,7 @@ public class Usine {
 					int qteFinale = qteActuelle - qteCommandee;
 					stocks.add(new Element(e2.getCodeE(), e2.getNom(), e2.getUnite(), qteFinale, e2.getPrixAchat(), e2.getPrixVente()));
 					stocks.remove(e2);
+					break;
 				}
 			}
 			this.porteMonnaie += (qteCommandee*e1.getPrixVente());
@@ -66,12 +81,15 @@ public class Usine {
 					int qteFinale = qteActuelle + qteCommandee;
 					stocks.add(new Element(e2.getCodeE(), e2.getNom(), e2.getUnite(), qteFinale, e2.getPrixAchat(), e2.getPrixVente()));
 					stocks.remove(e2);
+					break;
 				}
 			}
+			
 			this.porteMonnaie -= (qteCommandee*e1.getPrixVente());
 		}
 		this.commandesF.add(commande);
 	}
+	
 	
 
 }

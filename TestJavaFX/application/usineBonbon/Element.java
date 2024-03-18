@@ -6,10 +6,10 @@ public class Element {
 	private String nom;
 	private int quantite;
 	private String unite;
-	private float prixAchat;
-	private float prixVente;
+	private double prixAchat;
+	private double prixVente;
 	
-	public Element(String codeE, String nom, String unite, float prixAchat,float prixVente) {
+	public Element(String codeE, String nom, String unite, double prixAchat,double prixVente) {
 		this.codeE=codeE;
 		this.nom=nom;
 		this.prixAchat=prixAchat;
@@ -18,7 +18,7 @@ public class Element {
 		this.unite=unite;
 	}
 	
-	public Element(String codeE, String nom, String unite, int qte, float prixAchat,float prixVente) {
+	public Element(String codeE, String nom, String unite, int qte, double prixAchat,double prixVente) {
 		this.codeE=codeE;
 		this.nom=nom;
 		this.prixAchat=prixAchat;
@@ -47,11 +47,11 @@ public class Element {
 		this.quantite = qte;
 	}
 
-	public float getPrixVente() {
+	public double getPrixVente() {
 		return this.prixVente;
 	}
 	
-	public float getPrixAchat() {
+	public double getPrixAchat() {
 		return this.prixAchat;
 	}
 	
