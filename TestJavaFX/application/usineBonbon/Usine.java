@@ -90,6 +90,30 @@ public class Usine {
 		this.commandesF.add(commande);
 	}
 	
+	public void afficherStock() {
+		System.out.println("STOCK DE L'USINE : \n");
+		for(Element e : this.stocks) {
+			System.out.println("code : "+e.getCodeE());
+			System.out.println("nom : "+e.getNom());
+			System.out.println("quantite en stock : "+e.getQte());
+			System.out.println("unite : "+e.getUnite());
+			System.out.println("prix d'achat : "+e.getPrixAchat());
+			System.out.println("prix de vente : "+e.getPrixVente());
+			System.out.println();
+		}
+	}
+	
+	public void afficherChaines() {
+		System.out.println("CHAINES DE PRODUCTION DE L'USINE : \n");
+		for(ChaineProduction c : this.chainesProduction) {
+			System.out.println("code : "+c.getCodeChaine());
+			System.out.println("nom : "+c.getNom());
+			System.out.println("entrée : "+c.retournerEntree());
+			System.out.println("entrée : "+c.retournerSortie());
+			System.out.println("niveau d'activation : "+c.getNiveau());
+		}
+	}
+	
 	
 
 }

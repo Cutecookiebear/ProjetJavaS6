@@ -9,12 +9,12 @@ public class ChaineProduction {
 	private ArrayList<Element> sortie;
 	private int niveauA;
 	
-	public ChaineProduction(String codeChaine, String nom) {
+	public ChaineProduction(String codeChaine, String nom,  ArrayList<Element> entree, ArrayList<Element> sortie) {
 		this.codeChaine = codeChaine;
 		this.nom = nom;
 		this.niveauA=0;
-		this.entree= new ArrayList<>();
-		this.sortie= new ArrayList<>();
+		this.entree= entree;
+		this.sortie= sortie;
 	}
 
 	public String getNom() {
@@ -23,6 +23,28 @@ public class ChaineProduction {
 
 	public String getCodeChaine() {
 		return codeChaine;
+	}
+	
+	public int getNiveau() {
+		return this.niveauA;
+	}
+	
+	public String retournerEntree() {
+		String r = "( ";
+		for(Element e : this.entree) {
+			r+=e.getNom()+"["+e.getQte()+e.getUnite()+"] ";
+		}
+		r+=")";
+		return r;
+	}
+	
+	public String retournerSortie() {
+		String r = "( ";
+		for(Element e : this.sortie) {
+			r+=e.getNom()+"["+e.getQte()+e.getUnite()+"] ";
+		}
+		r+=")";
+		return r;
 	}
 
 	public void setNiveau(int n) {
