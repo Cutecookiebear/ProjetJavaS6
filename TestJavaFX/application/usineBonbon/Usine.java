@@ -6,12 +6,17 @@ public class Usine {
 	
 	private ArrayList<ChaineProduction> chainesProduction;
 	private ArrayList<Element> stocks;
+	private ArrayList<CommandeFournisseur> commandesF;
+	private ArrayList<CommandeClient> commandesC;
 	private int porteMonnaie;
 	
 	public Usine(int solde) {
 		this.porteMonnaie = solde;
 		this.chainesProduction = new ArrayList<>();
 		this.stocks = new ArrayList<>();
+		this.commandesF = new ArrayList<>();
+		this.commandesC = new ArrayList<>();
+		
 	}
 	
 	public void ajoutChaine(ChaineProduction chaine) {
@@ -34,17 +39,39 @@ public class Usine {
 		return this.porteMonnaie;
 	}
 	
-	public void passerCommandeC(Commande commande) {
-		for(Panier p : commande.liste) {
-			Element e = p.getElem();
-			int qteActuelle = e.getQte();
-			int qteCommandee = p.getQte();
-			int newQte = qteActuelle - qteCommandee;
-			this.stocks.remove(e);
-			e.setQte(newQte);
-			this.stocks.add(e);
-			this.porteMonnaie += qteCommandee*p.getElem().getPrixVente();
+	public void passerCommandeC(CommandeClient commande) {
+		for(Element e1 : commande.liste) {
+			int qteCommandee = e1.getQte();
+			String codeElemC = e1.getCodeE();
+			for(Element e2 : this.stocks) {
+				if(e2.getCodeE()==codeElemC) {
+					int qteActuelle = e2.getQte();
+					int qteFinale = qteActuelle - qteCommandee;
+					stocks.add(new Element(e2.getCodeE(), e2.getNom(), e2.getUnite(), qteFinale, e2.getPrixAchat(), e2.getPrixVente()));
+					stocks.remove(e2);
+				}
+			}
+			this.porteMonnaie += (qteCommandee*e1.getPrixVente());
 		}
+		this.commandesC.add(commande);
 	}
+	
+	public void passerCommandeF(CommandeFournisseur commande) {
+		for(Element e1 : commande.liste) {
+			int qteCommandee = e1.getQte();
+			String codeElemC = e1.getCodeE();
+			for(Element e2 : this.stocks) {
+				if(e2.getCodeE()==codeElemC) {
+					int qteActuelle = e2.getQte();
+					int qteFinale = qteActuelle + qteCommandee;
+					stocks.add(new Element(e2.getCodeE(), e2.getNom(), e2.getUnite(), qteFinale, e2.getPrixAchat(), e2.getPrixVente()));
+					stocks.remove(e2);
+				}
+			}
+			this.porteMonnaie -= (qteCommandee*e1.getPrixVente());
+		}
+		this.commandesF.add(commande);
+	}
+	
 
 }

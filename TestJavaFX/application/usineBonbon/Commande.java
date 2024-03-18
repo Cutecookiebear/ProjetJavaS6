@@ -4,22 +4,21 @@ import java.util.ArrayList;
 
 public abstract class Commande {
 	
-    protected ArrayList<Panier> liste;
+    protected ArrayList<Element> liste;
 
     public Commande() {
         liste = new ArrayList<>();
     }
 
-    public void ajouterPanier(Element e, int qte) {
-    	Panier p = new Panier(e,qte);
-        liste.add(p);
+    public void ajouterPanier(Element e) {
+        liste.add(e);
     }
 
-    public void supprimerPanier(Panier p) {
-        liste.remove(p);
+    public void supprimerPanier(Element e) {
+        liste.remove(e);
     }
 
-    public ArrayList<Panier> getListe() {
+    public ArrayList<Element> getListe() {
         return liste;
     }
 
